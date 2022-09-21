@@ -1,12 +1,12 @@
 @font-face{
     font-family: 'kelexiong';
     font-display: swap;
-    src: url('../static_file@3.0/fonts/caihongruantangkelexiong.ttf') format("truetype");
+    src: url('../static_file@3.0/caihongruantangkelexiong.ttf') format("truetype");
 }
 @font-face{
     font-family: 'keaisha';
     font-display: swap;
-    src: url('../static_file@3.0/fonts/chiwoyijikeaisha.ttf') format("truetype");
+    src: url('../static_file@3.0/chiwoyijikeaisha.ttf') format("truetype");
 }
 body {
     font-family: 'kelexiong','keaisha';

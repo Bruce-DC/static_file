@@ -8,6 +8,11 @@
     font-display: swap;
     src: url('../static_file@3.0/chiwoyijikeaisha.ttf') format("truetype");
 }
+@font-face{
+    font-family: 'meiren';
+    font-display: swap;
+    src: url('../static_file@4.0/HYTangMeiRen35W_cut.ttf') format("truetype");
+}
 body {
-    font-family: 'kelexiong','keaisha';
+    font-family: 'kelexiong','keaisha','meiren';
 }

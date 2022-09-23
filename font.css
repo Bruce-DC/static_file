@@ -1,18 +1,8 @@
 @font-face{
-    font-family: 'kelexiong';
-    font-display: swap;
-    src: url('../static_file@3.0/caihongruantangkelexiong.ttf') format("truetype");
-}
-@font-face{
-    font-family: 'keaisha';
-    font-display: swap;
-    src: url('../static_file@3.0/chiwoyijikeaisha.ttf') format("truetype");
-}
-@font-face{
     font-family: 'meiren';
     font-display: swap;
     src: url('../static_file@4.0/HYTangMeiRen35W_cut.ttf') format("truetype");
 }
 body {
-    font-family: 'kelexiong','keaisha','meiren';
+    font-family: 'meiren';
 }

@@ -1,7 +1,7 @@
 @font-face{
     font-family: 'meiren';
     font-display: swap;
-    src: url('../static_file@5.0/HYTangMeiRen35W_cut.ttf') format("truetype");
+    src: url('../static_file@6.0/HYTangMeiRen55W_cut.ttf') format("truetype");
 }
 body {
     font-family: 'meiren';

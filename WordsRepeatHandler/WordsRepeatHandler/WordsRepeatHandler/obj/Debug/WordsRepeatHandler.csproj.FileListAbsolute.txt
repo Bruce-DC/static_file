@@ -1,0 +1,6 @@
+C:\BoshiGames\hexo_file\static_file_2\static_file\WordsRepeatHandler\WordsRepeatHandler\WordsRepeatHandler\bin\Debug\WordsRepeatHandler.exe
+C:\BoshiGames\hexo_file\static_file_2\static_file\WordsRepeatHandler\WordsRepeatHandler\WordsRepeatHandler\bin\Debug\WordsRepeatHandler.pdb
+C:\BoshiGames\hexo_file\static_file_2\static_file\WordsRepeatHandler\WordsRepeatHandler\WordsRepeatHandler\obj\Debug\WordsRepeatHandler.csproj.AssemblyReference.cache
+C:\BoshiGames\hexo_file\static_file_2\static_file\WordsRepeatHandler\WordsRepeatHandler\WordsRepeatHandler\obj\Debug\WordsRepeatHandler.csproj.CoreCompileInputs.cache
+C:\BoshiGames\hexo_file\static_file_2\static_file\WordsRepeatHandler\WordsRepeatHandler\WordsRepeatHandler\obj\Debug\WordsRepeatHandler.exe
+C:\BoshiGames\hexo_file\static_file_2\static_file\WordsRepeatHandler\WordsRepeatHandler\WordsRepeatHandler\obj\Debug\WordsRepeatHandler.pdb

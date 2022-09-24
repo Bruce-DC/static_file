@@ -1,13 +1,64 @@
-qwertyuiopasdfghjklzxcvbnm
-QWERTYUIOPASDFGHJKLZXCVBNM
-搜索
-首页
-文章
-标签
-分类
-豆瓣
-我
-公告
-博客新上线，欢迎关注！
-新的一天
-最
+qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890,.!@#$%^&*()_+{}:;"'?/~`|\搜索首页文章标签分类豆瓣我游戏电影音乐书籍博客新上线，欢迎关注！发表于更新于---
+title: hexo本地文件引用失败的解决方法
+date: 2022-09-16 18:53:02
+tags: Hexo
+top_img:
+cover:
+description: 不知道为什么，我本地引用的一些文件就是找不到，所以就有了这篇文章。。。
+keywords:
+---
+
+## 问题描述：
+最近在研究给静态网站加自定义右键的功能，也就是你现在右键就可以看到的效果。[参考的教程链接](https://yisous.xyz/posts/11eb4aac/#post-comment),还有[这个](https://blog.csdn.net/qq_41356250/article/details/125942433)。
+两篇教程都提到了我们要自己(~~*写*~~ 抄)一个rightmenu.js文件，这个文件放到我们主题的对应目录中后，要在配置文件中的{% label inject %}的{% label bottom %}下引用这个js文件。
+但是在这里配置之后，可能在hexo s的时候起效，但是在部署之后右击没有特殊效果，也有可能hexo s的时候就不生效。按下{% label F12 orange %}，{% label F5 orange %}刷新一下的时候，{% label Console green %}中一直会出现一个{% label 报错 red %}：
+![第一种报错](https://img.gejiba.com/images/b69aa5011196d6a08f0d55cb6992dfd4.md.png)
+![第二种报错](https://img.gejiba.com/images/ee3cdb7f91a14d896c67e05745fc9781.md.png)
+
+## 问题分析：
+这两种报错的原因都是因为我们添加在本地的那个js文件找不到，也就是路径不正确。但是(有可能是我Hexo配置文件的问题)，无论我怎么尝试修改路径，都避免不了这个报错。
+
+## 问题解决：
+既然我们把js文件放在本地无法正确引用的话，那么我们考虑把这个js文件放在{% label 别的地方 red %}，打开页面的时候直接去加载，就像上面两个教程链接里面提到的使用了{% label jquery.js orange %}一样，可以吗？
+当然可以，这里{% label 别的地方 red %}就是CND!
+但是我们只有少量的这种文件，也没有必要去腾讯云、阿里云等供应商那边去开通一个CDN服务，有没有{% label 简单 red %}+{% label 免费 red %}的方案呢？
+有的，[参考这里。](https://zhuanlan.zhihu.com/p/76951130)
+
+{% note success no-icon %}
+其实我们可以把js文件放在github上，然后去引用即可，但是在国内太慢了，所以要使用jsDelivr来加速。
+{% endnote %}
+
+## 那么如何去着手呢？
+### 首先你需要一个仓库
+有的同学说，我直接在国内的托管平台gitee上放置这个js文件不行吗？ 
+我只能说，我相信是可以的，但是我没成功。。。
+
+好的，我们在GitHub上创建一个仓库并且把它克隆到我们本地，把我们这次要用的rightmenu.js文件放进去，{% label commit orange %}+{% label push orange %}推送上去。
+
+### 然后我们在GitHub上发布
+![点击箭头所指这里](https://img.gejiba.com/images/e6d03a624845fdbe8fac0cf59829395a.md.png)
+在新的页面里点击红色箭头所指的{% label Releases red %}标签，然后点击{% label Create_a_new_release green %}:
+![Create a new release](https://img.gejiba.com/images/5f96026650a1c67aed08c34f0e5c8fc7.md.png)
+
+{% note warning no-icon %}
+上面一步的截图是我们首次发布的状态，如果我们增加了文件需要再次发布的时候，页面是这样的：
+![非首次发布release的状态](https://img.gejiba.com/images/107500be01c34d3b60abf0d8552f4df6.md.png)
+这个时候我们点击红色箭头所指的{% label Releases red %}标签，然后点击右侧的{% label Draft_a_new_release %}按钮，然后跟着下面继续操作即可。
+{% endnote %}
+
+点击选择Choose a tag,在小弹框中输入v1.0，回车。
+![根据需要设置tag，一般设置为v1.0表示版本1.0](https://img.gejiba.com/images/e15bde36d241486452417e99ab306224.md.png)
+最后点击最下面的的{% label Publish_release green %}完成发布。
+![完成发布的状态](https://img.gejiba.com/images/80dc48326494bab8437842bdbff6c83e.md.png)
+
+### 最后通过jsDelivr引用资源
+这里我们就可以得到目标文件的链接了：
+https://cdn.jsdelivr.net/gh/你的用户名/你的仓库名@发布的版本号/文件路径
+比如我的{% label 用户名 orange %}是{% label Bruce-DC green %}，刚刚创建的{% label 仓库名 orange %}是{% label static_file green %}，发布的{% label 版本号 orange %}是{% label v1.0 green %}，{% label 文件完整名 orange %}是{% label rightmenu.js green %}。
+所以我对应的链接就是：
+{% note success no-icon %}
+https://cdn.jsdelivr.net/gh/Bruce-DC/static_file@1.0/rightmenu.js
+{% endnote %}
+我们把这个地址贴到浏览器，等待加载一下，最终会看到浏览器中显示了我们这个js文件的全部内容。
+
+最后的最后，我们把这个链接贴到配置文件中就可以正常使用了，浏览器的控制台也不会报错了！
